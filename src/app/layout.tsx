@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import './globals.css'
 
 export const metadata = {
@@ -12,7 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className='bg-base-gray-600 text-base-gray-100'>
+        <header className='flex items-center justify-center bg-base-gray-700 p-4 w-full h-52'>
+          <Image src="/Logo.svg" alt="Logo" width={126} height={48} />
+        </header>
+        {children}
+      </body>
     </html>
   )
 }
