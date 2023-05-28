@@ -25,6 +25,7 @@ export function FieldSet({ action }: FieldSetProps) {
                 onClick={async () => {
                     startTransition(async () => {
                         await action(todoRef.current!.value)
+                        todoRef.current!.value = ""
                     })
                 }}>
                 {pending ? "Criando..." : "Criar"}
