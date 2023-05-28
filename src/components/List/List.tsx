@@ -1,21 +1,19 @@
-"use client"
-import { ITodo } from "@/app/types/ITodo";
 import { ListHeading } from "./ListHeader";
 import { ListItem } from "./ListItem";
 import { EmptyList } from "./EmptyList";
+import { listTodos, toggleTodo, removeTodo } from "@/app/api/todos";
 
-export interface IListProps {
-  todos: ITodo[];
-}
+export async function List() {
+  const todos = await listTodos();
 
-export function List({ todos }: IListProps) {
   return (
     <div className='flex flex-col items-center w-full max-w-3xl gap-6'>
-      <ListHeading done={0} total={0} />
+      <ListHeading done={todos.filter(todo => todo.done).length} total={todos.length} />
       <ul className='flex flex-col items-center justify-center gap-4 w-full p-1 rounded-lg border-t-2 border-solid border-base-gray-400 outline-none'>
         {todos.length > 0 ? (
           todos.map(todo => (
-            <ListItem key={todo.id} todo={todo} />
+            /* @ts-expect-error */
+            <ListItem key={todo.id} todo={todo} toggleTodo={toggleTodo} removeTodo={removeTodo} />
           ))
         ) : (
           <EmptyList />

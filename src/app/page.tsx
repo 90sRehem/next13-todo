@@ -1,31 +1,29 @@
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import { Button, Checkbox, DeleteButton, Form, IconButton, List, ListHeading } from './components'
+import { FieldSet, Form, List } from '../components'
+import { revalidatePath } from 'next/cache';
+import { createTodo } from './api/todos';
 
 const inter = Inter({ subsets: ['latin'] })
 
-const todos = [{
-  id: "1",
-  title: "teste",
-  done: false,
-  createdAt: new Date(),
-  updatedAt: new Date(),
-}]
+export default async function Home() {
+  async function addTodo(title: string) {
+    "use server";
+    try {
+      await createTodo({ title })
 
-export default function Home() {
+      revalidatePath("/")
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <main className={`${inter.className} flex flex-col items-center justify-center gap-12 p-4 w-full h-full`}>
       <Form>
-        <fieldset className='flex flex-col gap-2 md:flex-row'>
-          <Form.Input
-            type='text'
-            name='new-todo'
-            placeholder='Criar uma nova tarefa'
-          />
-          <Button type='submit'>Criar</Button>
-        </fieldset>
+        <FieldSet action={addTodo} />
       </Form>
-      <List todos={[]} />
+      {/* @ts-expect-error */}
+      <List />
     </main>
   )
 }
