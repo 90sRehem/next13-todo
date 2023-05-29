@@ -35,15 +35,13 @@ export async function GET(_request: Request, context: { params: { slug: string }
   }
 }
 
-export async function PATCH(request: Request, context: { params: { slug: string } }) {
-  const body = await request.json();
+export async function PATCH(_request: Request, context: { params: { slug: string } }) {
   return toggleTodo({
     slug: context.params.slug,
-    done: body.done
   })
 }
 
-export async function DELETE(request: Request, context: { params: { slug: string } }) {
+export async function DELETE(_request: Request, context: { params: { slug: string } }) {
   try {
     const todo = await findTodo({
       slug: context.params.slug
