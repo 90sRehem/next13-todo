@@ -1,10 +1,11 @@
 import { ListHeading } from "./ListHeader";
 import { ListItem } from "./ListItem";
 import { EmptyList } from "./EmptyList";
-import { listTodos, toggleTodo, removeTodo } from "@/app/api/todos";
+import { listTodos, toggleTodo, removeTodo, Todo } from "@/app/api/todos";
 
 export async function List() {
-  const todos = await listTodos();
+  // const todos = await listTodos();
+  const todos = [] as Todo[];
 
   return (
     <div className='flex flex-col items-center w-full max-w-3xl gap-6'>
