@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import { FieldSet, Form, List } from '../components'
 import { revalidatePath } from 'next/cache';
 import { createTodo } from './api/todos';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,8 +23,10 @@ export default async function Home() {
       <Form>
         <FieldSet action={addTodo} />
       </Form>
-      {/* @ts-expect-error */}
-      <List />
+      <Suspense fallback={<p>Carregando...</p>}>
+        {/* @ts-expect-error */}
+        <List />
+      </Suspense>
     </main>
   )
 }
