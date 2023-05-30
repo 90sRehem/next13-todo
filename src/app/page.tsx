@@ -20,10 +20,10 @@ export default async function Home() {
 
   return (
     <main className={`${inter.className} flex flex-col items-center justify-center gap-12 p-4 w-full h-full`}>
-      <Form>
-        <FieldSet action={addTodo} />
-      </Form>
       <Suspense fallback={<p>Carregando...</p>}>
+        <Form>
+          <FieldSet action={addTodo} />
+        </Form>
         {/* @ts-expect-error */}
         <List />
       </Suspense>
