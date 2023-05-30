@@ -13,11 +13,11 @@ Welcome to Next13-Todo! This is a simple Todo application built with Next.js and
 
 ## Features
 
-- Add, edit, and delete tasks
+- Add and delete tasks (on the way) 
 - Mark tasks as completed
-- Filter tasks by status (All, Active, Completed)
-- Persist data using local storage
+- Filter tasks by status (All, Active, Completed) (on the way)
 - Responsive design for mobile and desktop
+- offline support (on the way)
 
 ## Installation
 
