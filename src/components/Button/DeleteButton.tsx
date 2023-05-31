@@ -1,8 +1,9 @@
 "use client";
 
 import { Trash } from "@phosphor-icons/react"
+import { ButtonHTMLAttributes } from "react";
 
-interface DeleteButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> { }
+interface DeleteButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { }
 
 export function DeleteButton(props: DeleteButtonProps) {
     return (

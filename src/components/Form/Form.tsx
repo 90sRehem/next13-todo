@@ -1,7 +1,7 @@
-import { PropsWithChildren } from "react";
+import { FormHTMLAttributes, PropsWithChildren } from "react";
 import { Input } from "./Input";
 
-type FormProps = React.FormHTMLAttributes<HTMLFormElement>;
+type FormProps = FormHTMLAttributes<HTMLFormElement>;
 
 export function Form({ children, ...rest }: PropsWithChildren<FormProps>) {
     return (

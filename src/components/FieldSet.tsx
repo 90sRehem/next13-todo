@@ -4,6 +4,7 @@ import { Button } from "./Button";
 import { Form } from "./Form";
 
 type FieldSetProps = {
+    // eslint-disable-next-line no-unused-vars
     action: (title: string) => Promise<void>;
 }
 

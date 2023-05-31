@@ -1,12 +1,14 @@
 "use client"
+import { FindTodoDTO, Todo } from "@/schema";
 import { DeleteButton } from "../Button";
 import { Checkbox } from "../Checkbox";
-import { FindTodoDTO, Todo } from "@/app/api/todos";
 
 export interface IListItemProps {
   todo: Todo;
-  toggleTodo: ({ slug }: FindTodoDTO) => Promise<Todo>;
-  removeTodo: ({ slug }: FindTodoDTO) => Promise<FindTodoDTO>;
+  // eslint-disable-next-line no-unused-vars
+  toggleTodo: (props: FindTodoDTO) => Promise<Todo>;
+  // eslint-disable-next-line no-unused-vars
+  removeTodo: (props: FindTodoDTO) => Promise<FindTodoDTO>;
 }
 
 export function ListItem({

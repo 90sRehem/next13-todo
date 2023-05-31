@@ -1,7 +1,7 @@
 "use client";   
-import { ForwardRefRenderFunction, forwardRef } from "react";
+import { ForwardRefRenderFunction, InputHTMLAttributes, forwardRef } from "react";
 
-export interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string
     errorMessage?: string;
 }

@@ -1,8 +1,9 @@
 "use client";
 // import { experimental_useFormStatus as useFormStatus } from "react-dom";
 import { PlusCircle, Spinner } from "@phosphor-icons/react";
+import { ButtonHTMLAttributes } from "react";
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     pending: boolean;
 };
 

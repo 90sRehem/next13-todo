@@ -23,11 +23,11 @@
     "colId": "25b573bc-50a8-4798-9895-95b145549184",
     "containerId": "",
     "name": "list todos",
-    "url": "http://localhost:3000/api/todos",
+    "url": "https://next13-todo-xi.vercel.app//api/todos",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-05-24T00:07:04.273Z",
-    "modified": "2023-05-28T01:31:53.776Z",
+    "modified": "2023-05-29T12:09:27.536Z",
     "headers": [],
     "params": [],
     "tests": []
