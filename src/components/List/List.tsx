@@ -7,6 +7,7 @@ import { revalidatePath } from "next/cache";
 
 export async function List() {
   async function listTodos() {
+    "use server"
     const todos = await prisma.todo.findMany();
     const returnValue = todoOutputSchema.safeParse(todos);
     if (!returnValue.success) {
@@ -16,6 +17,7 @@ export async function List() {
   }
   
   async function toggleTodo({ slug }: FindTodoDTO) {
+    "use server"
     const todo = await prisma.todo.findUnique({
       where: {
         slug,
@@ -36,6 +38,7 @@ export async function List() {
   }
   
   async function removeTodo({ slug }: FindTodoDTO) {
+    "use server"
     await prisma.todo.delete({
          where: {
              slug
