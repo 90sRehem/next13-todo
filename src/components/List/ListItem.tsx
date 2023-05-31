@@ -2,6 +2,7 @@
 import { FindTodoDTO, Todo } from "@/schema";
 import { DeleteButton } from "../Button";
 import { Checkbox } from "../Checkbox";
+import { useTransition } from "react";
 
 export interface IListItemProps {
   todo: Todo;
@@ -16,6 +17,7 @@ export function ListItem({
   toggleTodo,
   removeTodo
  }: IListItemProps) {
+  let [pending, startTransition] = useTransition();
   return (
     <li className='w-full'>
       <div className='flex items-start flex-row justify-between p-4 gap-3 bg-base-gray-500 border border-solid border-base-gray-400 shadow-md rounded-lg w-full min-h-[72px]'>
@@ -37,7 +39,14 @@ export function ListItem({
           <DeleteButton
             aria-label='delete'
             type="button"
-            onClick={() => removeTodo({ slug: todo.slug })}
+            pending={pending}
+            onClick={async () => {
+              startTransition(async () => {
+                await removeTodo({
+                  slug: todo.slug
+                })
+              })
+            }}
           />
         </div>
       </div>
