@@ -1,6 +1,8 @@
 # Next13-Todo
 
-Welcome to Next13-Todo! This is a simple Todo application built with Next.js and TypeScript.
+Welcome to Next13-Todo! This is a simple Todo application built with Next.js version 13.4 with the server actions preview and TypeScript.
+
+[Demo](https://next13-todo-xi.vercel.app/)
 
 ## Table of Contents
 - [Next13-Todo](#next13-todo)
